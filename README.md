@@ -43,6 +43,18 @@ Firefox and Safari use different extension systems and APIs, so KeyHop would nee
 
 ---
 
+> ⚠️ **Important:** KeyHop shortcuts do not work on browser default pages such as the **New Tab, Settings, Extensions page, `brave://` / `chrome://` pages, or the Chrome Web Store.** This is a browser security limitation.
+
+### Why?
+
+KeyHop keeps its shortcut system lightweight and privacy-focused by using a local content-script based approach. Browsers do not allow content scripts to run on protected internal pages, so KeyHop cannot detect shortcuts there.
+
+We could use the browser-level `chrome.commands` API to support shortcuts on these pages, but it comes with limitations on dynamic keyboard combinations and requires a fixed set of command slots.
+
+**For KeyHop, we chose the simpler and more lightweight approach:** no background shortcut system, no unnecessary permissions, and no additional browser-level command handling. Your shortcuts work on normal webpages while keeping KeyHop minimal and privacy-focused.
+
+---
+
 ## 📥 How to Download and Install
 
 KeyHop is currently not available on the Chrome Web Store. You need to install it as an **unpacked extension**.
