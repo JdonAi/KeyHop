@@ -43,7 +43,7 @@ Firefox and Safari use different extension systems and APIs, so KeyHop would nee
 
 ---
 
-> ⚠️ **Important:** KeyHop shortcuts do not work on browser default pages such as the **New Tab, Settings, Extensions page, `brave://` / `chrome://` pages, or the Chrome Web Store.** This is a browser security limitation.
+⚠️ **Important:** KeyHop shortcuts do not work on browser default pages such as the **New Tab, Settings, Extensions page, `brave://` / `chrome://` pages, or the Chrome Web Store.** This is a browser security limitation.
 
 ### Why?
 
