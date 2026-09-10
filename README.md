@@ -2,7 +2,7 @@
 
 KeyHop is a lightweight browser extension that lets you create keyboard shortcuts for opening websites quickly.
 
-You can assign a custom shortcut, such as `Alt+Shift+1`, to any URL. You can also choose whether the website should open in a **new tab** or replace the **current tab**.
+You can assign a custom shortcut to any URL. You can also choose whether the website should open in a **new tab** or replace the **current tab**.
 
 ---
 
@@ -119,7 +119,7 @@ keyhop/
 ├── background.js
 ├── content.js
 ├── fonts/
-│   └── nunito.woff2
+│   └── README.md
 └── icons/
     ├── icon16.png
     ├── icon48.png
