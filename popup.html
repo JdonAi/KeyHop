@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyHop</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <img src="icons/icon48.png" alt="KeyHop" class="header-icon">
+        <h1 class="app-title">KeyHop</h1>
+      </div>
+    </header>
+
+    <main class="app-body">
+      <!-- Section 1: Shortcut List -->
+      <section class="section-shortcuts">
+        <h2 class="section-title">Shortcut List</h2>
+        <div id="shortcuts-list" class="shortcuts-list">
+          <!-- Dynamically populated shortcut cards -->
+        </div>
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p>No shortcuts saved yet.</p>
+          <span>Use the form below to bind your first website hotkey!</span>
+        </div>
+      </section>
+
+      <!-- Section 2: Add / Edit Form -->
+      <section class="section-form-card">
+        <form id="hotkey-form" novalidate>
+          <input type="hidden" id="editing-id" value="">
+
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="input-name" class="form-label">Name</label>
+            <input 
+              type="text" 
+              id="input-name" 
+              class="form-input" 
+              placeholder="e.g., Google" 
+              autocomplete="off" 
+              required
+            >
+            <div id="name-error" class="form-error"></div>
+          </div>
+
+          <!-- URL Field -->
+          <div class="form-group">
+            <label for="input-url" class="form-label">URL</label>
+            <div class="url-input-row">
+              <input 
+                type="url" 
+                id="input-url" 
+                class="form-input" 
+                placeholder="e.g., https://google.com" 
+                autocomplete="off" 
+                required
+              >
+              <button 
+                type="button" 
+                id="btn-select-bookmarks" 
+                class="btn-bookmarks"
+                title="Select a link from your bookmarks"
+              >
+                Select from Bookmarks
+              </button>
+            </div>
+            <div id="url-error" class="form-error"></div>
+          </div>
+
+          <!-- Shortcut (Press keys) Field -->
+          <div class="form-group">
+            <label for="input-keys" class="form-label">Shortcut (Press keys)</label>
+            <div class="shortcut-input-wrapper">
+              <input 
+                type="text" 
+                id="input-keys" 
+                class="form-input shortcut-key-input" 
+                placeholder="Press shortcut keys" 
+                readonly 
+                required
+              >
+              <button 
+                type="button" 
+                id="btn-clear-keys" 
+                class="btn-clear-shortcut" 
+                title="Clear shortcut key"
+                style="display: none;"
+              >✕</button>
+            </div>
+            <div id="keys-help" class="form-helper">Click input and press key combination (e.g., Alt+Shift+1)</div>
+            <div id="keys-error" class="form-error"></div>
+          </div>
+
+          <!-- Open in new tab Checkbox -->
+          <div class="form-group-checkbox">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="check-new-tab" checked>
+              <span class="checkbox-box">
+                <svg class="check-icon" viewBox="0 0 12 10" fill="none">
+                  <polyline points="1.5 5.5 4.5 8.5 10.5 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                </svg>
+              </span>
+              <span class="checkbox-label">Open in new tab</span>
+            </label>
+          </div>
+
+          <!-- Form Buttons -->
+          <div class="form-actions">
+            <button type="submit" id="btn-save" class="btn-primary">Save</button>
+            <button type="button" id="btn-cancel" class="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Bookmarks Selection Modal -->
+    <div id="bookmarks-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title">Select from Bookmarks</h3>
+          <button type="button" id="btn-close-bookmarks" class="btn-modal-close" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-search">
+          <input 
+            type="text" 
+            id="bookmark-search-input" 
+            class="form-input search-input" 
+            placeholder="Search bookmarks..." 
+            autocomplete="off"
+          >
+        </div>
+        <div id="bookmarks-tree" class="bookmarks-list">
+          <!-- Bookmarks rendered here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast" style="display: none;"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
