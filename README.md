@@ -111,12 +111,11 @@ Find **Developer mode** on the extensions page and turn it on.
 4. Click the **Shortcut** field and press your desired key combination, such as `Alt+Shift+1`.
 5. Choose whether **Open in new tab** should be ON or OFF.
 6. Click **Save**.
+7. Close the browser and reopen it to start using your newly assigned shortcuts.
 
 Your shortcut is now ready.
 
 Whenever you are on a normal webpage, press the assigned shortcut and KeyHop will open the saved URL.
-
-> ⚠️ **Note:** Browser internal pages, such as `brave://extensions`, the Chrome Web Store, and new tab pages, do not allow extension shortcuts for security reasons. This is a browser limitation, not a KeyHop issue.
 
 ---
 
